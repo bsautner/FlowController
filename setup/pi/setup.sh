@@ -1,3 +1,5 @@
+delete mac from pi when unpaired from host
+
 sudo raspi-config nonint do_expand_rootfs
 sudo dpkg-reconfigure cloud-init
 sudo rm -rf /etc/cloud/ && sudo rm -rf /var/lib/cloud/
