@@ -45,3 +45,19 @@ sudo bt-agent -c NoInputNoOutput -p /tmp/bluetooth.cfg
   325  sudo nmcli d wifi connect firewall-a password 
   326  nmcli d
   327  ip a
+
+/etc/netplan/99_config.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      addresses:
+        - 192.168.1.121/24
+      routes:
+        - to: default
+          via: 192.168.1.121
+      nameservers:
+          search: [mydomain, otherdomain]
+          addresses: [192.168.1.1, 8.8.8.8]
+sudo netplan apply
